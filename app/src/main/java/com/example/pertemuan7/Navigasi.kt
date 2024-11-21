@@ -5,10 +5,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pertemuan7.ui.view.FormMahasiswaView
 import com.example.pertemuan7.ui.viewmodel.MahasiswaViewModel
 import java.lang.reflect.Modifier
 
@@ -31,7 +34,13 @@ fun Navigasi(
             navController = navHost,
             startDestination = Halaman.Form.name
         ){
+            composable(route = Halaman.Form.name) {
+                val context = LocalContext.current
+                FormMahasiswaView(
+                    listGender = ListGender.listGender.map { genderId ->
+                        context.resources.getString(genderId)
+                    },
 
 
-        }
+            }
     }
