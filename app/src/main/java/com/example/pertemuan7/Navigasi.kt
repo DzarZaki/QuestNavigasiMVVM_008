@@ -1,6 +1,9 @@
 package com.example.pertemuan7
 
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
@@ -18,5 +21,7 @@ fun Navigasi(
     viewModel: MahasiswaViewModel = viewModel(),
     navHost: NavHostController = rememberNavController()
 ){
+    Scaffold { isipadding ->
+        val uiState by viewModel.dataModel.collectAsState()
 
-}
+    }
