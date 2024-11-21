@@ -5,16 +5,18 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pertemuan7.model.ListSex
 import com.example.pertemuan7.ui.view.DetailMahasiswaView
 import com.example.pertemuan7.ui.view.FormMahasiswaView
 import com.example.pertemuan7.ui.viewmodel.MahasiswaViewModel
-import java.lang.reflect.Modifier
+
 
 enum class Halaman {
     Form,
@@ -23,7 +25,7 @@ enum class Halaman {
 
 @Composable
 fun Navigasi(
-    modifier: Modifier = Modifier(),
+    modifier: Modifier = Modifier,
     viewModel: MahasiswaViewModel = viewModel(),
     navHost: NavHostController = rememberNavController()
 ){
@@ -38,7 +40,7 @@ fun Navigasi(
             composable(route = Halaman.Form.name) {
                 val context = LocalContext.current
                 FormMahasiswaView(
-                    listGender = ListGender.listGender.map { genderId ->
+                    listGender = ListSex.listSex.map { genderId ->
                         context.resources.getString(genderId)
                     },
                     onSubmitClick = { listData ->
