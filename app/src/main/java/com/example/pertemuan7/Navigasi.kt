@@ -40,7 +40,14 @@ fun Navigasi(
                     listGender = ListGender.listGender.map { genderId ->
                         context.resources.getString(genderId)
                     },
-
-
+                    onSubmitClick = { listData ->
+                        viewModel.saveDataMhs(listData)
+                        navHost.navigate(Halaman.Data.name)
+                    }
+                )
             }
+
+
+
+        }
     }
