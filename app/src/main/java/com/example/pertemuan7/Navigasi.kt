@@ -11,6 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.pertemuan7.ui.view.DetailMahasiswaView
 import com.example.pertemuan7.ui.view.FormMahasiswaView
 import com.example.pertemuan7.ui.viewmodel.MahasiswaViewModel
 import java.lang.reflect.Modifier
@@ -46,8 +47,19 @@ fun Navigasi(
                     }
                 )
             }
-
-
-
+            composable(route = Halaman.Data.name) {
+                DetailMahasiswaView(
+                    dataMhs = uiState,
+                    onClickButton = {
+                        navHost.popBackStack()
+                    }
+                )
+            }
         }
     }
+}
+
+
+
+
+
